@@ -16,6 +16,9 @@ const isValidRequestBody = function(reqBody){
 //****************** CREATE INTERNS********************/
 
 const createIntern = async function(req,res){
+
+    res.setHeader('Access-Control-Allow-Origin','*')
+
     try{
 
         const queryParams = req.query
@@ -34,12 +37,6 @@ const createIntern = async function(req,res){
         }
 
         const {name, email, mobile , collegeName} = requestBody
-
-        if(Object.keys(requestBody).length > 4){
-            return res
-                .status(400)
-                .send({status:false , message: "invalid data entered inside request body"})
-        }
 
         if(!isValid(name)){
             return res

@@ -96,6 +96,9 @@ const createCollege = async function (req, res) {
 //**************************GET COLLEGE DETAILS********************** */
 
 const getCollegeDetails = async function (req, res) {
+
+    res.setHeader('Access-Control-Allow-Origin','*')
+
     try {
 
         const requestBody = req.body
